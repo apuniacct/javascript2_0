@@ -6,16 +6,26 @@
   const answer = document.getElementById('answer')
 
   example.addEventListener("click", function () {
+    // 2.1.2
+    answer.innerText = "Loading...";
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(array => {
         console.log(array)
-        answer.innerHTML = JSON.stringify(array);
+        // 2.1.1
+        answer.innerText = JSON.stringify(array, null, 4);
       })
   })
 
+  // 2.1.3
   cw1.addEventListener("click", function () {
-    //TODO
+    answer.innerText = "Loading...";
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then(response => response.json())
+      .then(array => {
+        console.log(array)
+        answer.innerText = JSON.stringify(array, null, 4);
+      })
   })
 
   cw2.addEventListener("click", function () {
