@@ -28,8 +28,25 @@
       })
   })
 
+  // 2.1.4
   cw2.addEventListener("click", function () {
-    //TODO
+    answer.innerText = "Processing...";
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: "sent_title",
+        body: "sent_body",
+        userId: 12351445234
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .then(array => {
+        console.log(array)
+        answer.innerText = JSON.stringify(array, null, 4);
+      })
   })
 
   cw3.addEventListener("click", function () {
